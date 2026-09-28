@@ -1,0 +1,32 @@
+# Live Trivia
+
+A browser game where up to 4 players join a room with a 4-letter code and race to answer high school trivia in History, Math, English and STEM.
+
+## Run it
+
+```bash
+npm install
+npm start          # http://localhost:3000  (set PORT to change)
+npm test           # plays full games with 4 simulated players
+```
+
+## How a game works
+
+1. One player enters a name and clicks **Create a game**. They get a room code and become the host.
+2. Up to 3 more players join with the code (or the invite link, which fills it in).
+3. The host picks subjects and 5, 10, 15 or 20 questions, then starts.
+4. Each question has 15 seconds. A right answer scores 500 points plus up to 500 more for speed. The round ends early once everyone has answered.
+5. After each question everyone sees the right answer, who picked what, and the scoreboard. The final screen ranks everyone, and the host can start another game in the same room without repeating questions.
+
+Refreshing the page puts a player back into their game. If the host leaves, the next player becomes host.
+
+## Project layout
+
+- `server.js` Express + Socket.IO server
+- `src/game.js` rooms, timers, scoring (the server is the only one that knows the right answer until the reveal)
+- `data/questions.json` question bank: `[question, correct, wrong, wrong, wrong]`, 32 per subject; add more by appending lines
+- `public/` the page players see
+
+## Hosting
+
+It needs a host that keeps a Node process running and allows WebSockets (Render, Railway, Fly.io and similar). Rooms live in memory, so run a single instance.

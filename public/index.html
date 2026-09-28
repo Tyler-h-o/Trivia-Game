@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Trivia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <!-- Home: enter a name, then create or join -->
+    <section id="screen-home" class="screen">
+      <h1 class="logo">Live<span>Trivia</span></h1>
+      <p class="tagline">Four players. History, math, English and STEM. Fastest right answer wins.</p>
+      <form id="home-form" class="card stack" autocomplete="off">
+        <label>Your name
+          <input id="name" maxlength="16" required placeholder="e.g. Jordan">
+        </label>
+        <button type="submit" id="create-btn" class="btn primary">Create a game</button>
+        <div class="divider"><span>or join with a code</span></div>
+        <div class="row">
+          <input id="code" maxlength="4" placeholder="ABCD" class="code-input" aria-label="Room code">
+          <button type="button" id="join-btn" class="btn">Join</button>
+        </div>
+        <p id="home-error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <!-- Lobby: waiting for players, host picks settings -->
+    <section id="screen-lobby" class="screen" hidden>
+      <div class="card stack">
+        <p class="muted center">Room code</p>
+        <div id="lobby-code" class="big-code"></div>
+        <button id="copy-link" class="btn small ghost">Copy invite link</button>
+        <h2>Players <span id="player-count" class="muted"></span></h2>
+        <ul id="lobby-players" class="player-slots"></ul>
+        <div id="host-settings" class="stack">
+          <h2>Subjects</h2>
+          <div id="subject-toggles" class="chips"></div>
+          <h2>Questions</h2>
+          <div id="count-toggles" class="chips"></div>
+          <button id="start-btn" class="btn primary">Start game</button>
+        </div>
+        <p id="guest-wait" class="muted center">Waiting for the host to start…</p>
+        <p id="lobby-error" class="error" role="alert"></p>
+        <button id="leave-btn" class="btn small ghost">Leave game</button>
+      </div>
+    </section>
+
+    <!-- Question and reveal share one screen -->
+    <section id="screen-question" class="screen" hidden>
+      <header class="q-head">
+        <span id="q-subject" class="subject-tag"></span>
+        <span id="q-number" class="muted"></span>
+        <span id="q-timer" class="timer-num"></span>
+      </header>
+      <div class="timer-bar"><div id="timer-fill"></div></div>
+      <h2 id="q-prompt" class="prompt"></h2>
+      <div id="choices" class="choices"></div>
+      <p id="q-status" class="q-status"></p>
+      <ul id="q-players" class="mini-board"></ul>
+    </section>
+
+    <!-- Final results -->
+    <section id="screen-final" class="screen" hidden>
+      <h1 class="logo small">Final <span>scores</span></h1>
+      <ol id="podium" class="podium"></ol>
+      <div class="stack narrow">
+        <button id="again-btn" class="btn primary">Play again</button>
+        <p id="final-wait" class="muted center">Waiting for the host to start a new game…</p>
+        <button id="final-leave" class="btn small ghost">Leave game</button>
+      </div>
+    </section>
+  </main>
+  <div id="toast" class="toast" hidden></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

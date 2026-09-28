@@ -1,0 +1,23 @@
+{
+  "name": "live-trivia",
+  "version": "1.0.0",
+  "description": "Live 4-player trivia on high school subjects",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.4"
+  },
+  "devDependencies": {
+    "socket.io-client": "^4.8.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
