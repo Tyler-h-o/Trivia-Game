@@ -1,4 +1,4 @@
-# Live Trivia
+# ASMW Trivia
 
 A browser game where up to 4 players join a room with a 4-letter code and race to answer high school trivia in History, Math, English and STEM.
 

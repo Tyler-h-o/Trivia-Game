@@ -78,7 +78,7 @@ function createServer(timing = {}) {
 
 if (require.main === module) {
   const port = Number(process.env.PORT) || 3000;
-  createServer().server.listen(port, () => console.log(`Live Trivia running at http://localhost:${port}`));
+  createServer().server.listen(port, () => console.log(`ASMW Trivia running at http://localhost:${port}`));
 }
 
 module.exports = { createServer };

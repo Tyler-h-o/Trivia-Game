@@ -1,5 +1,5 @@
 {
-  "name": "live-trivia",
+  "name": "asmw-trivia",
   "version": "1.0.0",
   "description": "Live 4-player trivia on high school subjects",
   "main": "index.js",

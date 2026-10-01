@@ -28,6 +28,13 @@ main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
 h1, h2, .btn, .big-code, .prompt, .subject-tag, .timer-num { font-family: Fredoka, Inter, sans-serif; }
 h2 { font-size: 1.1rem; margin: 8px 0 0; }
 
+/* Home: one card in the middle of the screen */
+.home { min-height: calc(100vh - 72px); min-height: calc(100dvh - 72px); display: flex; align-items: center; justify-content: center; }
+.home-center { width: 100%; max-width: 400px; }
+.home .logo { margin: 0 0 20px; }
+.home .card { max-width: none; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+
 .logo { font-size: clamp(2.6rem, 9vw, 4rem); text-align: center; margin: 24px 0 4px; letter-spacing: -1px; }
 .logo span { color: var(--accent); }
 .logo.small { font-size: 2.4rem; }
@@ -40,6 +47,7 @@ h2 { font-size: 1.1rem; margin: 8px 0 0; }
 .center { text-align: center; }
 .muted { color: var(--muted); }
 .error { color: var(--bad); min-height: 1.2em; margin: 0; text-align: center; }
+.error:empty { display: none; }
 
 label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
 input {
