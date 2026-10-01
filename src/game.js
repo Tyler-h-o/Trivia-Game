@@ -1,12 +1,8 @@
 const crypto = require('crypto');
 const bank = require('../data/questions.json');
 
-const SUBJECTS = {
-  history: 'History',
-  math: 'Math',
-  english: 'English',
-  stem: 'STEM',
-};
+// Category key -> display name, in the order the lobby shows them.
+const SUBJECTS = bank._categories;
 const MAX_PLAYERS = 4;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ'; // no I or O, they look like 1 and 0
 
@@ -140,7 +136,7 @@ class Room {
     if (this.state !== 'lobby') return 'Settings can only change in the lobby.';
     if (Array.isArray(subjects)) {
       const valid = subjects.filter(s => SUBJECTS[s]);
-      if (valid.length === 0) return 'Pick at least one subject.';
+      if (valid.length === 0) return 'Pick at least one category.';
       this.settings.subjects = [...new Set(valid)];
     }
     if (count !== undefined) {
