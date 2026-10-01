@@ -31,4 +31,6 @@ The questions follow the categories and style of *As Schools Match Wits*. Real q
 
 ## Hosting
 
-It needs a host that keeps a Node process running and allows WebSockets (Render, Railway, Fly.io and similar). Rooms live in memory, so run a single instance.
+It needs a host that keeps a Node process running and allows WebSockets. Rooms live in memory, so run a single instance.
+
+**Render (free):** `render.yaml` sets everything up. Sign in at render.com with GitHub, choose **New > Blueprint**, pick this repo and click **Apply**. The free plan sleeps after 15 minutes without visitors, so the first visit after that takes about a minute to load, and any games in progress are lost when it sleeps.

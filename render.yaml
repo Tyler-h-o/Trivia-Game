@@ -1,0 +1,9 @@
+# Render Blueprint: in Render, New > Blueprint, pick this repo, Apply.
+services:
+  - type: web
+    name: asmw-trivia
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
