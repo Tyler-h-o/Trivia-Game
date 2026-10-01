@@ -1,7 +1,9 @@
 const socket = io();
 const $ = id => document.getElementById(id);
 
-const SUBJECTS = { history: 'History', math: 'Math', english: 'English', stem: 'STEM' };
+let SUBJECTS = {};      // category key -> name, loaded from the server
+const SUBJECT_COLORS = ['#ff9f68', '#6ec6ff', '#c792ea', '#7ee2a8', '#ffd166', '#f78fb3', '#9ad0c2'];
+fetch('/api/subjects').then(r => r.json()).then(s => { SUBJECTS = s; render(); });
 const COUNTS = [5, 10, 15, 20];
 const SHAPES = ['▲', '◆', '●', '■'];
 const AVATAR_COLORS = ['#e84a5f', '#2f80ed', '#f2a93b', '#27ae60'];
@@ -178,7 +180,8 @@ function renderQuestion() {
   const mine = room.players.find(p => p.id === me);
 
   $('q-subject').textContent = q.subjectName;
-  $('q-subject').className = `subject-tag ${q.subject}`;
+  $('q-subject').className = 'subject-tag';
+  $('q-subject').style.background = SUBJECT_COLORS[Object.keys(SUBJECTS).indexOf(q.subject) % SUBJECT_COLORS.length];
   $('q-number').textContent = `Question ${q.number} of ${q.total}`;
 
   // Only rebuild the prompt when the question changes, so it doesn't flicker.

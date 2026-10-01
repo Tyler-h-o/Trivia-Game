@@ -1,12 +1,8 @@
 const crypto = require('crypto');
 const bank = require('../data/questions.json');
 
-const SUBJECTS = {
-  history: 'History',
-  math: 'Math',
-  english: 'English',
-  stem: 'STEM',
-};
+// Category key -> display name, in the order the lobby shows them.
+const SUBJECTS = bank._categories;
 const MAX_PLAYERS = 4;
 const CODE_LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ'; // no I or O, they look like 1 and 0
 

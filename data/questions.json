@@ -1,5 +1,6 @@
 {
   "_format": "Each question is [prompt, correct answer, wrong answer, wrong answer, wrong answer]. Choices are shuffled at game time.",
+  "_categories": { "history": "History", "math": "Math", "english": "English", "stem": "STEM" },
   "history": [
     ["In what year was the Declaration of Independence adopted?", "1776", "1783", "1787", "1812"],
     ["Who was the first President of the United States?", "George Washington", "John Adams", "Thomas Jefferson", "Benjamin Franklin"],
