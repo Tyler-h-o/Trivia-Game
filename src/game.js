@@ -136,7 +136,7 @@ class Room {
     if (this.state !== 'lobby') return 'Settings can only change in the lobby.';
     if (Array.isArray(subjects)) {
       const valid = subjects.filter(s => SUBJECTS[s]);
-      if (valid.length === 0) return 'Pick at least one subject.';
+      if (valid.length === 0) return 'Pick at least one category.';
       this.settings.subjects = [...new Set(valid)];
     }
     if (count !== undefined) {

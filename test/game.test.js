@@ -45,14 +45,14 @@ test('four players play a full game', async () => {
 
     // Only the host can change settings or start.
     assert.match((await call(others[0], 'start_game')).error, /host/);
-    assert.ifError((await call(host, 'update_settings', { subjects: ['math', 'stem'], count: 5 })).error);
+    assert.ifError((await call(host, 'update_settings', { subjects: ['science', 'geography'], count: 5 })).error);
 
     const players = [host, ...others];
     assert.ifError((await call(host, 'start_game')).error);
 
     for (let n = 1; n <= 5; n++) {
       const q = await waitFor(host, s => s.state === 'question' && s.question.number === n);
-      assert.ok(['math', 'stem'].includes(q.question.subject));
+      assert.ok(['science', 'geography'].includes(q.question.subject));
       assert.strictEqual(q.question.correctIndex, undefined, 'answer must stay hidden during the question');
       assert.strictEqual(q.question.choices.length, 4);
       // Everyone answers choice 0; the round should end early once all four are in.
