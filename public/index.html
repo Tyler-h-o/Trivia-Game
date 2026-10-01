@@ -11,21 +11,25 @@
 <body>
   <main id="app">
     <!-- Home: enter a name, then create or join -->
-    <section id="screen-home" class="screen">
-      <h1 class="logo">Live<span>Trivia</span></h1>
-      <p class="tagline">Four players. History, math, English and STEM. Fastest right answer wins.</p>
-      <form id="home-form" class="card stack" autocomplete="off">
-        <label>Your name
-          <input id="name" maxlength="16" required placeholder="e.g. Jordan">
-        </label>
-        <button type="submit" id="create-btn" class="btn primary">Create a game</button>
-        <div class="divider"><span>or join with a code</span></div>
-        <div class="row">
-          <input id="code" maxlength="4" placeholder="ABCD" class="code-input" aria-label="Room code">
-          <button type="button" id="join-btn" class="btn">Join</button>
-        </div>
-        <p id="home-error" class="error" role="alert"></p>
-      </form>
+    <section id="screen-home" class="screen home">
+      <div class="home-center">
+        <h1 class="logo">Live<span>Trivia</span></h1>
+        <form id="home-form" class="card stack" autocomplete="off">
+          <label>Your name
+            <input id="name" maxlength="16" required placeholder="e.g. Jordan">
+          </label>
+          <div class="field">
+            <label for="code">Join code</label>
+            <div class="row">
+              <input id="code" maxlength="4" placeholder="ABCD" class="code-input">
+              <button type="button" id="join-btn" class="btn primary">Join</button>
+            </div>
+          </div>
+          <div class="divider"><span>or</span></div>
+          <button type="submit" id="create-btn" class="btn">Create a game</button>
+          <p id="home-error" class="error" role="alert"></p>
+        </form>
+      </div>
     </section>
 
     <!-- Lobby: waiting for players, host picks settings -->
